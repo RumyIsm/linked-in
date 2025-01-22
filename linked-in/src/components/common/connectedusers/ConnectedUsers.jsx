@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getConnections } from '../../../api/FirestoreAPI';
 import { UsergroupAddOutlined } from "@ant-design/icons";
+import "./ConnectedUsers.css"
 
 function ConnectedUsers({ user, getCurrentUser, currentUser, }) {
     const [isConnected, setIsConnected] = useState(false);
@@ -12,12 +13,12 @@ function ConnectedUsers({ user, getCurrentUser, currentUser, }) {
     return isConnected ? (
         <></> 
     ) : (
-        <div className='grid-child'>
+        <div  className='grid-child'>
              <img src={user.imageLink} />
             <p className='name'>{user.name}</p>
             <p className='headline'>{user.headline}</p>
 
-            <button onClick={() => getCurrentUser(user.id)}>
+            <button className='connection-btn' onClick={() => getCurrentUser(user.id)}>
                 <UsergroupAddOutlined /> Connect
             </button>
         </div>

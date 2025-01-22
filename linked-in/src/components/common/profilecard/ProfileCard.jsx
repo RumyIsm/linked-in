@@ -3,11 +3,10 @@ import PostsCard from "../postscard/PostsCard";
 import {
   getSingleStatus,
   getSingleUser,
-  updatePost,
 } from "../../../api/FirestoreAPI";
 import { useLocation } from "react-router-dom";
 import FileUploadModal from "../fileuploadmodal/FileUploadModal";
-import ModalComponent from "../modal/ModalComponent";
+// import ModalComponent from "../modal/ModalComponent";
 import { EditOutlined } from "@ant-design/icons";
 import { uploadImage as uploadImageAPI } from "../../../api/ImageUpload";
 

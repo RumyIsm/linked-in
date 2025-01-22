@@ -110,7 +110,6 @@
   }
 
   .post-status {
-    /* width: 90%; */
     width: 750px;
     background-color: whitesmoke;
     margin-top: 30px;
@@ -174,4 +173,5 @@
   .user-details,.bgr_img, .post-status{
     max-width: 350px;
   }
+
 }
