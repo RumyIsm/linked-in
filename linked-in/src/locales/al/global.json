@@ -1,5 +1,33 @@
 {
-    "language.en": "Anglisht",
-    "language.al": "Shqip",
-    "header": "Mireseerdhet ne komunitetin tuaj profesional"
-}
+    "language": {
+      "en": "Anglisht",
+      "al": "Shqip"
+    },
+    "header": {
+      "firstPage": "Mirë se vini në komunitetin tuaj profesional",
+      "loginPage":"Regjistrohu tani",
+        "registerPage" : "Përfitoni sa më shumë nga jeta juaj profesionale"
+    },
+    "button": {
+      "oneFirstPage": "Regjistrohu",
+      "twoFirstPage": "Bashkohu tani",
+      "loginPage":"Regjistrohu tani",
+       "registerPage": "Dakordohu & bashkohu"
+    },
+    "paragraph": {
+        "loginPage":"Qëndroni të përditësuar për botën tuaj profesioanle",
+        "loginPageTwo":"Gati për LinkedIn",
+         "registerPage":"I ri në LinkedIn"
+    },
+    "link": {
+        "loginPage":"Bashkohu tani",
+         "registerPage" : "Regjistrohu"
+    },
+    "input": {
+        "loginPageOne":"Emaili",
+        "loginPageTwo":"Fjalëkalimi",
+        "registerPageOne":"Emri juaj",
+        "registerPageTwo":"Emaili juaj",
+        "registerPageThree":"Fjalëkalimi (6 ose më shumë karaktere)"
+    }
+  }

@@ -5,10 +5,44 @@ import { useNavigate } from "react-router-dom";
 import LinkedinLogo from "../assets/linkedinLogo.png";
 import GoogleButton from "react-google-button";
 import { toast } from "react-toastify";
+import { MdLanguage } from "react-icons/md"; 
+import { useTranslation } from "react-i18next";
+import { Button, Dropdown } from "antd";
 
 function LoginComponent() {
   let navigate = useNavigate();
   const [credentails, setCredentials] = useState({});
+  const { t, i18n } = useTranslation("global");
+  
+    const changeLang = (lang) => {
+      i18n.changeLanguage(lang);
+      localStorage.setItem("language", lang);
+    };
+  
+    const languageMenu = [
+      {
+        key: "en",
+        label: (
+          <div
+            onClick={() => changeLang("en")}
+            style={{ cursor: "pointer" }}
+          >
+            {t("language.en")}
+          </div>
+        ),
+      },
+      {
+        key: "al",
+        label: (
+          <div
+            onClick={() => changeLang("al")}
+            style={{ cursor: "pointer" }}
+          >
+            {t("language.al")}
+          </div>
+        ),
+      },
+    ];
 
   const login = async () => {
     try {
@@ -37,9 +71,20 @@ function LoginComponent() {
         <img src={LinkedinLogo} className="linkedinLogo" alt="LinkedIn Logo" />
       </h1>
 
+      <Dropdown
+                  menu={{ items: languageMenu }}
+                  placement="bottom"
+                  arrow
+                >
+                  <Button>
+                    <MdLanguage style={{ marginRight: "8px", fontSize: "18px" }} />
+                    {t("")}
+                  </Button>
+                </Dropdown>
+
       <div className="login-wrapper-inner">
-        <h1 className="heading">Sign in</h1>
-        <p className="sub-heading">Stay updated on your professional world</p>
+        <h1 className="heading">{t("header.loginPage")}</h1>
+        <p className="sub-heading">{t("paragraph.loginPage")}</p>
 
         <div className="auth-inputs">
           <input
@@ -48,7 +93,7 @@ function LoginComponent() {
             }
             type="email"
             className="common-input"
-            placeholder="Email or Phone"
+            placeholder={t("input.loginPageOne")}
           />
           <input
             onChange={(event) =>
@@ -56,11 +101,11 @@ function LoginComponent() {
             }
             type="password"
             className="common-input"
-            placeholder="Password"
+            placeholder={t("input.loginPageTwo")}
           />
         </div>
         <button onClick={login} className="login-btn">
-          Sign in
+        {t("button.loginPage")}
         </button>
       </div>
       <hr className="hr-text" data-content="or" />
@@ -78,9 +123,9 @@ function LoginComponent() {
           onClick={googleSignIn}
         />
         <p className="go-to-signup">
-          Already to LinkedIn?{" "}
+        {t("paragraph.loginPageTwo")}?{" "}
           <span className="join-now" onClick={() => navigate("/register")}>
-            Join now
+          {t("link.loginPage")}
           </span>
         </p>
       </div>

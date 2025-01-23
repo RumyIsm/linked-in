@@ -1,5 +1,34 @@
 {
-    "language.en": "English",
-    "language.al": "Albanian",
-    "header": "Welcome to your professional community"
-}
+    "language": {
+      "en": "English",
+      "al": "Albanian"
+    },
+    "header": {
+      "firstPage": "Welcome to your professional community",
+      "loginPage" : "Sign in",
+       "registerPage" : "Make the most of your professional life"
+    },
+    "button": {
+      "oneFirstPage": "Sign in",
+      "twoFirstPage": "Join now",
+      "loginPage": "Sign in",
+      "registerPage": "Agree & Join"
+    },
+    "paragraph": {
+        "loginPage":"Stay updated on your professional world",
+        "loginPageTwo":"Already to LinkedIn",
+        "registerPage":"New to LinkedIn"
+    },
+    "link":{
+        "loginPage" : "Join now",
+        "registerPage" : "Sign in"
+    },
+    "input": {
+        "loginPageOne":"Email",
+        "loginPageTwo":"Password",
+        "registerPageOne":"Your name",
+        "registerPageTwo":"Your email",
+        "registerPageThree":"Password (6 or more characters)"
+    }
+  }
+  

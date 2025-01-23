@@ -6,9 +6,45 @@ import { toast } from "react-toastify";
 import { postUserData } from "../api/FirestoreAPI";
 import {getUniqueID} from "../helpers/getUniqueId";
 import "../css/LoginComponent.css";
+import { MdLanguage } from "react-icons/md"; 
+import { useTranslation } from "react-i18next";
+import { Button, Dropdown } from "antd";
 
 function RegisterComponent() {
   let navigate = useNavigate();
+  const { t, i18n } = useTranslation("global");
+  
+    const changeLang = (lang) => {
+      i18n.changeLanguage(lang);
+      localStorage.setItem("language", lang);
+    };
+  
+    const languageMenu = [
+      {
+        key: "en",
+        label: (
+          <div
+            onClick={() => changeLang("en")}
+            style={{ cursor: "pointer" }}
+          >
+            {t("language.en")}
+          </div>
+        ),
+      },
+      {
+        key: "al",
+        label: (
+          <div
+            onClick={() => changeLang("al")}
+            style={{ cursor: "pointer" }}
+          >
+            {t("language.al")}
+          </div>
+        ),
+      },
+    ];
+
+  
   const [credentails, setCredentials] = useState({});
   const register = async () => {
     try {
@@ -40,9 +76,20 @@ function RegisterComponent() {
               <img src={LinkedinLogo} className="linkedinLogo" alt="LinkedIn Logo" />
             </h1>
             </div>
+            <Dropdown
+                              menu={{ items: languageMenu }}
+                              placement="bottom"
+                              arrow
+                            >
+                              <Button>
+                                <MdLanguage style={{ marginRight: "8px", fontSize: "18px" }} />
+                                {t("")}
+                              </Button>
+                            </Dropdown>
+
 
       <div className="login-wrapper-inner">
-        <h1 className="heading">Make the most of your professional life</h1>
+        <h1 className="heading">{t("header.registerPage")}</h1>
 
         <div className="auth-inputs">
           <input
@@ -51,7 +98,7 @@ function RegisterComponent() {
             }
             type="text"
             className="common-input"
-            placeholder="Your Name"
+            placeholder={t("input.registerPageOne")}
           />
           <input
             onChange={(event) =>
@@ -59,7 +106,7 @@ function RegisterComponent() {
             }
             type="email"
             className="common-input"
-            placeholder="Your Email"
+            placeholder={t("input.registerPageTwo")}
           />
           <input
             onChange={(event) =>
@@ -67,19 +114,19 @@ function RegisterComponent() {
             }
             type="password"
             className="common-input"
-            placeholder="Password (6 or more characters)"
+            placeholder={t("input.registerPageThree")}
           />
         </div>
         <button onClick={register} className="login-btn">
-          Agree & Join
+        {t("button.registerPage")}
         </button>
       </div>
       <hr className="hr-text" data-content="or" />
       <div className="google-btn-container">
         <p className="go-to-signup">
-        New to LinkedIn?{" "}
+        {t("paragraph.registerPage")}?{" "}
           <span className="join-now" onClick={() => navigate("/login")}>
-            Sign in
+          {t("link.registerPage")}
           </span>
         </p>
       </div>
