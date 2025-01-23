@@ -5,7 +5,6 @@ import { Button, Modal } from "antd";
 import {EditOutlined } from "@ant-design/icons";
 import { FaTrash } from "react-icons/fa6";
 import {getCurrentUser, getAllUsers, deletePost, getConnections} from "../../../api/FirestoreAPI"
-// import { useProfileImage } from '../../contexts/ProfileImageContext';
 
 import "./PostsCard.css"
 

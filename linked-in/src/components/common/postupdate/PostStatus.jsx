@@ -9,16 +9,7 @@ import { getUniqueID } from '../../../helpers/getUniqueId';
 import {useNavigate} from "react-router-dom"
 import { Carousel } from 'antd';
 import { HiUserPlus } from "react-icons/hi2";
-// import ConnectedUsers from '../connectedusers/ConnectedUsers';
 
-// const contentStyle = {
-//   margin: 0,
-//   height: '160px',
-//   color: '#fff',
-//   lineHeight: '160px',
-//   textAlign: 'center',
-//   background: '#364d79',
-// };
 
 function PostStatus({ currentUser }) {
   let navigate = useNavigate();
@@ -29,7 +20,7 @@ function PostStatus({ currentUser }) {
   const [currentPost, setCurrentPost] = useState({});
   const [isEdit, setIsEdit] = useState(false);
   const [postImage, setPostImage] = useState("");
-  // const [allUsers, setAllUsers] = useState([]);
+
 
   const sendStatus = async () => {
     try {
@@ -62,7 +53,7 @@ function PostStatus({ currentUser }) {
     try {
       let updatedPost = {
         status: status,
-        postImage: postImage,
+        postImage: postImage || currentPost?.postImage,
       };
       await updatePost(currentPost.id, updatedPost);
       setModalOpen(false);
@@ -74,30 +65,10 @@ function PostStatus({ currentUser }) {
     }
   };
 
-
-
-
+ 
   
 
-  // // Fetch Users from Firestore
-  // useEffect(() => {
-  //   const fetchUsers = async () => {
-  //     try {
-  //       const users = await getAllUsers();
-  //       setAllUsers(users || []); // Sigurohuni që allUsers është një array
-  //     } catch (error) {
-  //       console.error("Error fetching users:", error);
-  //     }
-  //   };
-  //   fetchUsers();
-  // }, []);
 
-  // // Log Users data for debugging
-  // useEffect(() => {
-  //   console.log("All Users:", allUsers);
-  // }, [allUsers]);
-
-  // Fetch Posts
   useEffect(() => {
     getStatus(setAllStatus);
   }, []);
@@ -141,7 +112,7 @@ function PostStatus({ currentUser }) {
           <p>Add your work experience and skills to show your strengths to recruiters.</p>
           <button
             className="btn-post-status-edit"
-            onClick={() => navigate("/profile")}
+            onClick={() => navigate("/profile", { state: { user: currentUser } })}
           >
             Update Profile
           </button>
@@ -200,20 +171,6 @@ function PostStatus({ currentUser }) {
           );
         })}
       </div>
-
-      {/* <div className="connections-section">
-        {allUsers.map((users) => {
-          return (
-            <div key={users.id}>
-              <ConnectedUsers
-                users={users}
-                currentUser={currentUser}
-                getCurrentUser={getCurrentUser}
-              />
-            </div>
-          );
-        })}
-      </div> */}
     </div>
   );
 }
