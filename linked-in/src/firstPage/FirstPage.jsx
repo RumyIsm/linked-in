@@ -22,7 +22,9 @@ function FirstPage() {
       <div className="welcome_1">
       <h1 className="welcome_content"> Welcome to your professional community </h1>
       <div className="welcome_buttons">
-      <button className="getting-started" onClick={() => navigate("/login")}>
+      <button className="getting-started" onClick={() =>{
+          console.log("Navigating to /login");
+        navigate("/login")}}>
         Sign in
       </button>
       <button

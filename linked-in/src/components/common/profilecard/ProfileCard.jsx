@@ -109,17 +109,21 @@ export default function ProfileCard({ onEdit, currentUser }) {
 
             <div className="profile-back-image"></div>
             <div className="profile_style">
-            <img
-              className="profile-image-pro"
-              onClick={() => setModalOpen(true)}
-              src={
-                Object.values(currentProfile).length === 0
-                  ? currentUser.imageLink
-                  : currentProfile?.imageLink
-              }
-              alt="profile-image"
-            />
-           </div>
+  <img
+    className="profile-image-pro"
+    onClick={() => {
+      if (currentUser.id === location?.state?.id) {
+        setModalOpen(true);
+      }
+    }}
+    src={
+      Object.values(currentProfile).length === 0
+        ? currentUser.imageLink
+        : currentProfile?.imageLink
+    }
+    alt="profile-image"
+  />
+</div>
            <div className="right_left"></div>
            <h3 className="userName">
               {Object.values(currentProfile).length === 0
@@ -189,7 +193,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
 
         {currentUser.skills || currentProfile?.skills ? (
           <p className="skills">
-            <span className="skill-label">Skills</span>:&nbsp;
+             Skills:&nbsp;
             {Object.values(currentProfile).length === 0
               ? currentUser.skills
               : currentProfile?.skills}

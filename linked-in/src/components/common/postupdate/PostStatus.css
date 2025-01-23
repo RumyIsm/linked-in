@@ -83,7 +83,7 @@
       background-repeat: no-repeat;
       background-size: cover;
       height: 110px;
-      width: 550px;
+      width: 750px;
       margin-bottom: 30px;
       display: flex;
       justify-content: center;
@@ -149,7 +149,7 @@
   }
 
   .ant-carousel {
-    width: 100%;
+    width: 90%;
     max-width: 750px;
     margin-top: 20px;
   }
@@ -170,8 +170,10 @@
 
 
 @media only screen and (max-width: 800px) {
-  .user-details,.bgr_img, .post-status{
+  .user-details,.bgr_img, .post-status, .quick{
     max-width: 350px;
+    margin: 0 auto;
   }
+ 
 
 }

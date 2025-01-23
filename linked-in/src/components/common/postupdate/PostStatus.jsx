@@ -74,6 +74,11 @@ function PostStatus({ currentUser }) {
     }
   };
 
+
+
+
+  
+
   // // Fetch Users from Firestore
   // useEffect(() => {
   //   const fetchUsers = async () => {
@@ -130,18 +135,28 @@ function PostStatus({ currentUser }) {
       </div>
 
 
-        <Carousel arrows infinite={false}>
+      <Carousel arrows infinite={false}>
         <div className="quick">
-        <img src="https://media.licdn.com/media/AAYQAgSuAAgAAQAAAAAAACwog6StkzhzSlK17m4iY5d_Xg.png" alt="" />
-        <p>Add your work experience and skills to show your strengths to recruiters.</p>
-        <button  className="btn-post-status-edit" onClick={() => navigate("/profile")}>Update Profile</button>
-      </div >
-      <div className="quick">
-        <img src="https://media.licdn.com/media/AAYQAgSuAAgAAQAAAAAAACnZ-D2hlcNzRqqPRb5a8tlJcA.png" alt="" />
-        <p>Follow companies you want to work for to get noticed by recruiters.</p>
-        <button  className="btn-post-status-edit" onClick={() => navigate("/connections")}>Start Following</button>
-      </div>
-    </Carousel>
+          <img src="https://media.licdn.com/media/AAYQAgSuAAgAAQAAAAAAACwog6StkzhzSlK17m4iY5d_Xg.png" alt="" />
+          <p>Add your work experience and skills to show your strengths to recruiters.</p>
+          <button
+            className="btn-post-status-edit"
+            onClick={() => navigate("/profile")}
+          >
+            Update Profile
+          </button>
+        </div>
+        <div className="quick">
+          <img src="https://media.licdn.com/media/AAYQAgSuAAgAAQAAAAAAACnZ-D2hlcNzRqqPRb5a8tlJcA.png" alt="" />
+          <p>Follow companies you want to work for to get noticed by recruiters.</p>
+          <button
+            className="btn-post-status-edit"
+            onClick={() => navigate("/connections")}
+          >
+            Start Following
+          </button>
+        </div>
+      </Carousel>
 
       
 

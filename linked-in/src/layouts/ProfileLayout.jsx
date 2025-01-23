@@ -6,9 +6,12 @@ import Profile from "../pages/Profile";
 function ProfileLayout() {
   const [currentUser, setCurrentUser] = useState({});
 
+
   useMemo(() => {
     getCurrentUser(setCurrentUser);
   }, []);
+
+
 
   return (
     <div>
