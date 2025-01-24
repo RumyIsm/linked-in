@@ -14,14 +14,20 @@
       "loginPage":"Regjistrohu tani",
        "registerPage": "Dakordohu & bashkohu",
        "postStatus": "Filloni një postim",
-        "postCard": "Shto komentin"
+        "postCard": "Shto komentin",
+        "popupOne":"Shih profilin",
+        "popupTwo":"Dil",
+        "profileEdit": "Ruaj",
+        "connection": "Lidhu"
     },
     "paragraph": {
         "loginPage":"Qëndroni të përditësuar për botën tuaj profesioanle",
         "loginPageTwo":"Gati për LinkedIn",
          "registerPage":"I ri në LinkedIn",
         "postStatusOne":"Lidhjet",
-        "postStatusTwo":"Rriteni rrjetin tuaj"
+        "postStatusTwo":"Rriteni rrjetin tuaj",
+        "topbar":"Nuk u gjet asnjë rezultat...",
+         "topbarTwo":"Kërko përdoruesit..."
     },
     "link": {
         "loginPage":"Bashkohu tani",
@@ -49,5 +55,12 @@
         "postCardOne":"Njerëz e pëlqejnë këtë post",
          "postCardTwo":"Pëlqe",
           "postCardThree":"Koment"
-    }      
+    },
+    "label": {
+        "profileEdit1":"Emri",
+        "profileEdit2":"Titulli",
+        "profileEdit3":"Faqe interneti",
+        "profileEdit4":"Rreth",
+        "profileEdit5":"Aftësitë"
+    }        
 }

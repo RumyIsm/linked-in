@@ -14,15 +14,22 @@
       "loginPage": "Sign in",
       "registerPage": "Agree & Join",
       "postStatus": "Start a post",
-       "postCard": "Add Comment"
+       "postCard": "Add Comment",
+       "profileEdit": "Save",
+        "connection": "Connect"
     },
     "paragraph": {
         "loginPage":"Stay updated on your professional world",
         "loginPageTwo":"Already to LinkedIn",
         "registerPage":"New to LinkedIn",
         "postStatusOne":"Connections",
-        "postStatusTwo":"Grow your network"
-    },
+        "postStatusTwo":"Grow your network",
+        "topbar":"No results found...",
+          "topbarTwo":"Search Users...",
+           "popupOne":"View Profile",
+           "popupTwo":"Log out"
+         
+   },
     "link":{
         "loginPage" : "Join now",
         "registerPage" : "Sign in"
@@ -49,6 +56,13 @@
         "postCardOne":"Many people like this post",
          "postCardTwo":"Like",
           "postCardThree":"Comment"
-    }   
+    },
+    "label": {
+        "profileEdit1":"Name",
+        "profileEdit2":"Headline",
+        "profileEdit3":"Website",
+        "profileEdit4":"About",
+        "profileEdit5":"Skills"
+    }     
   }
   

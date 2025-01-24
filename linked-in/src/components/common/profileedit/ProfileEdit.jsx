@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
 import { editProfile } from '../../../api/FirestoreAPI';
 import {CloseOutlined } from "@ant-design/icons";
+import { useTranslation } from "react-i18next";
 import "./ProfileEdit.css"
 
 function ProfileEdit({onEdit, currentUser}) {
     const [editInputs, setEditInputs] = useState(currentUser)
+        const { t, i18n } = useTranslation("global");
     const getInput = (event) => {
         let {name, value} = event.target;
         let input = { [name]: value};
@@ -31,102 +33,54 @@ function ProfileEdit({onEdit, currentUser}) {
             </div>
 
             <div className='profile-edit-inputs'>
-                <label>Name</label>
+                <label>{t("label.profileEdit1")}</label>
             <input 
             style={{borderRadius:"10px", border:"1px solid  rgb(200, 200, 200)", color:" rgb(116, 115, 115)"}}
             value={editInputs.name}
             onChange={getInput} 
             className='common-input'  
-            placeholder='Name'
+            placeholder={t("label.profileEdit1")}
             name='name' />
             
-            <label >Headline</label>
+            <label >{t("label.profileEdit2")}</label>
             <input
             style={{borderRadius:"10px", border:"1px solid  rgb(200, 200, 200)", color:" rgb(116, 115, 115)"}}
             value={editInputs.headline}  
             onChange={getInput} 
             className='common-input'  
-            placeholder='Headline'
+            placeholder={t("label.profileEdit2")}
             name='headline' />
 
-            {/* <label>Country</label>
-            <input
-            style={{borderRadius:"10px", border:"1px solid  rgb(200, 200, 200)", color:" rgb(116, 115, 115)"}}
-            value={editInputs.country}  
-            onChange={getInput} 
-            className='common-input'  
-            placeholder='Country'
-            name='country' />
-
-            <label>City</label>
-            <input
-             style={{borderRadius:"10px", border:"1px solid  rgb(200, 200, 200)", color:" rgb(116, 115, 115)"}}
-            value={editInputs.city}  
-            onChange={getInput} 
-            className='common-input'  
-            placeholder='City'
-            name='city' /> */}
-
-           {/* <label>Company</label> 
-            <input
-             style={{borderRadius:"10px", border:"1px solid  rgb(200, 200, 200)", color:" rgb(116, 115, 115)"}}
-            value={editInputs.company}  
-            onChange={getInput} 
-            className='common-input'  
-            placeholder='Company'
-            name='company' /> */}
-{/* 
-            <label>Industry</label> 
-
-            <input
-             style={{borderRadius:"10px", border:"1px solid  rgb(200, 200, 200)", color:" rgb(116, 115, 115)"}}
-            value={editInputs.industry}  
-            onChange={getInput} 
-            className='common-input'  
-            placeholder='Industry'
-            name='industry' /> */}
             
-            
-            
-            
-            {/* <label>College</label> 
 
-            <input
-             style={{borderRadius:"10px", border:"1px solid  rgb(200, 200, 200)", color:" rgb(116, 115, 115)"}}
-            value={editInputs.college}  
-            onChange={getInput} 
-            className='common-input'  
-            placeholder='College'
-            name='college' /> */}
-
-            <label>Website</label> 
+            <label>{t("label.profileEdit3")}</label> 
 
             <input
              style={{borderRadius:"10px", border:"1px solid  rgb(200, 200, 200)", color:" rgb(116, 115, 115)"}}
             value={editInputs.website}  
             onChange={getInput} 
             className='common-input'  
-            placeholder='Website'
+            placeholder={t("label.profileEdit3")}
             name='website' />
 
-            <label>About</label>
+            <label>{t("label.profileEdit4")}</label>
             <textarea
              style={{borderRadius:"10px", border:"1px solid  rgb(200, 200, 200)", color:" rgb(116, 115, 115)"}}
             rows={5}
             className='common-textArea ' 
-            placeholder='About Me' 
+            placeholder={t("label.profileEdit4")} 
             onChange={getInput} 
             name='aboutMe' 
             value={editInputs.aboutMe}  /> 
 
 
-            <label>Skills</label>
+            <label>{t("label.profileEdit5")}</label>
             <input
              style={{borderRadius:"10px", border:"1px solid  rgb(200, 200, 200)", color:" rgb(116, 115, 115)"}}
             value={editInputs.skills}  
             onChange={getInput} 
             className='common-input'  
-            placeholder='Skills'
+            placeholder={t("label.profileEdit5")}
             name='skills' />
 
 
@@ -135,7 +89,7 @@ function ProfileEdit({onEdit, currentUser}) {
             </div>
 
             <div className='save-container'>
-            <button className='save-btn' onClick={updateProfileData}>Save</button>
+            <button className='save-btn' onClick={updateProfileData}>{t("button.profileEdit")}</button>
             </div>
             </div>
         </div>

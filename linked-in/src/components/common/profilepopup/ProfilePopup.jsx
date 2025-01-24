@@ -1,14 +1,15 @@
 import React, {useState, useMemo} from 'react'
 import "./ProfilePopup.css"
-// import { onLogout } from "../../../api/AuthAPI";
 import { useNavigate } from 'react-router-dom';
 import { getCurrentUser } from '../../../api/FirestoreAPI';
+import { useTranslation } from "react-i18next";
 import Button from '../button/Button';
 
 
 function ProfilePopup() {
     let navigate = useNavigate();
     const [currentUser, setCurrentUser] = useState ({});
+     const { t, i18n } = useTranslation("global");
     useMemo (() => {
         getCurrentUser(setCurrentUser);
     }, []);
@@ -18,7 +19,7 @@ function ProfilePopup() {
             <p className='headline'>{currentUser?.headline}</p>
             
             <Button 
-            title="View Profile"
+            title={t("button.popupOne")}
             onClick={() =>
                 navigate ("/profile", {
                     state: {
@@ -28,7 +29,7 @@ function ProfilePopup() {
             }
             />
 
-            <Button title="Log out" onClick={() => navigate ("/")}/>
+            <Button title={t("button.popupTwo")} onClick={() => navigate ("/")}/>
              </div>
     )
 }

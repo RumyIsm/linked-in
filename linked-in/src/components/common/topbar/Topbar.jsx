@@ -156,7 +156,7 @@ function Topbar({ currentUser }) {
       ) : (
         <div className="search-results">
           {filteredUsers.length === 0 ? (
-            <div className="search-inner">No Results Found..</div>
+            <div className="search-inner">{t("paragraph.topbar")}</div>
           ) : (
             filteredUsers.map((user) => (
               <div
