@@ -12,12 +12,16 @@
       "oneFirstPage": "Sign in",
       "twoFirstPage": "Join now",
       "loginPage": "Sign in",
-      "registerPage": "Agree & Join"
+      "registerPage": "Agree & Join",
+      "postStatus": "Start a post",
+       "postCard": "Add Comment"
     },
     "paragraph": {
         "loginPage":"Stay updated on your professional world",
         "loginPageTwo":"Already to LinkedIn",
-        "registerPage":"New to LinkedIn"
+        "registerPage":"New to LinkedIn",
+        "postStatusOne":"Connections",
+        "postStatusTwo":"Grow your network"
     },
     "link":{
         "loginPage" : "Join now",
@@ -28,7 +32,23 @@
         "loginPageTwo":"Password",
         "registerPageOne":"Your name",
         "registerPageTwo":"Your email",
-        "registerPageThree":"Password (6 or more characters)"
-    }
+        "registerPageThree":"Password (6 or more characters)",
+        "postCard":"Add a comment"
+    },
+    "carousel-p" :
+    {
+        "carouselOne": "Add your work experience and skills to show your strengths to recruiters.",
+        "carouselTwo": "Follow companies you want to work for to get noticed by recruiters."
+    },
+    "carousel-btn" :
+    {
+        "carouselOne": "Update Profile",
+        "carouselTwo": "Start Following"
+    }, 
+    "span": {
+        "postCardOne":"Many people like this post",
+         "postCardTwo":"Like",
+          "postCardThree":"Comment"
+    }   
   }
   

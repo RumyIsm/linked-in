@@ -9,9 +9,11 @@ import { getUniqueID } from '../../../helpers/getUniqueId';
 import {useNavigate} from "react-router-dom"
 import { Carousel } from 'antd';
 import { HiUserPlus } from "react-icons/hi2";
+import { useTranslation } from "react-i18next";
 
 
 function PostStatus({ currentUser }) {
+  const { t } = useTranslation("global");
   let navigate = useNavigate();
   let userEmail = localStorage.getItem("userEmail");
   const [modalOpen, setModalOpen] = useState(false);
@@ -97,8 +99,8 @@ function PostStatus({ currentUser }) {
         <hr className='hr-textt' />
         <div className='user-detail-connection'   onClick={() => navigate("/connections")}>
           <div>
-        <span>Connections</span> <br />
-        <span>Grow your network</span>
+        <span>{t("paragraph.postStatusOne")}</span> <br />
+        <span>{t("paragraph.postStatusTwo")}</span>
         </div>
         <div><HiUserPlus/></div>
         </div>
@@ -109,22 +111,22 @@ function PostStatus({ currentUser }) {
       <Carousel arrows infinite={false}>
         <div className="quick">
           <img src="https://media.licdn.com/media/AAYQAgSuAAgAAQAAAAAAACwog6StkzhzSlK17m4iY5d_Xg.png" alt="" />
-          <p>Add your work experience and skills to show your strengths to recruiters.</p>
+          <p>{t("carousel-p.carouselOne")}</p>
           <button
             className="btn-post-status-edit"
             onClick={() => navigate("/profile", { state: { user: currentUser } })}
           >
-            Update Profile
+            {t("carousel-btn.carouselOne")}
           </button>
         </div>
         <div className="quick">
           <img src="https://media.licdn.com/media/AAYQAgSuAAgAAQAAAAAAACnZ-D2hlcNzRqqPRb5a8tlJcA.png" alt="" />
-          <p>Follow companies you want to work for to get noticed by recruiters.</p>
+          <p>{t("carousel-p.carouselTwo")}</p>
           <button
             className="btn-post-status-edit"
             onClick={() => navigate("/connections")}
           >
-            Start Following
+            {t("carousel-btn.carouselTwo")}
           </button>
         </div>
       </Carousel>
@@ -143,7 +145,7 @@ function PostStatus({ currentUser }) {
             setIsEdit(false);
           }}
         >
-          Start a post
+          {t("button.postStatus")}
         </button>
       </div>
 

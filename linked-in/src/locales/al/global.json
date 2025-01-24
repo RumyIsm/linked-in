@@ -12,12 +12,16 @@
       "oneFirstPage": "Regjistrohu",
       "twoFirstPage": "Bashkohu tani",
       "loginPage":"Regjistrohu tani",
-       "registerPage": "Dakordohu & bashkohu"
+       "registerPage": "Dakordohu & bashkohu",
+       "postStatus": "Filloni një postim",
+        "postCard": "Shto komentin"
     },
     "paragraph": {
         "loginPage":"Qëndroni të përditësuar për botën tuaj profesioanle",
         "loginPageTwo":"Gati për LinkedIn",
-         "registerPage":"I ri në LinkedIn"
+         "registerPage":"I ri në LinkedIn",
+        "postStatusOne":"Lidhjet",
+        "postStatusTwo":"Rriteni rrjetin tuaj"
     },
     "link": {
         "loginPage":"Bashkohu tani",
@@ -28,6 +32,22 @@
         "loginPageTwo":"Fjalëkalimi",
         "registerPageOne":"Emri juaj",
         "registerPageTwo":"Emaili juaj",
-        "registerPageThree":"Fjalëkalimi (6 ose më shumë karaktere)"
-    }
-  }
+        "registerPageThree":"Fjalëkalimi (6 ose më shumë karaktere)",
+        "postCard":"Shto një koment"
+    },
+    "carousel-p" :
+    {
+        "carouselOne": "Shtoni përvojën tuaj të punës dhe aftësitë për të treguar pikat tuaja të fuqishme te rekrutuesit",
+        "carouselTwo": "Ndiqni kompanitë për të cilat dëshironi të punoni për tu vënë re nga rekrutuesit"
+    },
+    "carousel-btn" :
+    {
+        "carouselOne": "Përditëso profilin",
+        "carouselTwo": "Fillo të ndiqni"
+    },
+    "span": {
+        "postCardOne":"Njerëz e pëlqejnë këtë post",
+         "postCardTwo":"Pëlqe",
+          "postCardThree":"Koment"
+    }      
+}

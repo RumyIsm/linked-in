@@ -3,6 +3,7 @@ import { likePost, getLikesByUser, postComment, getComments,updateCommentsWithNe
 import {getCurrentTimeStamp} from "../../../helpers/useMoment"
 import "./LikeButton.css";
 import { LikeOutlined, LikeFilled, CommentOutlined  } from "@ant-design/icons";
+import { useTranslation } from "react-i18next";
 
 export default function LikeButton({ userId, postId,currentUser}) {
   const [likesCount, setLikesCount] = useState(0);
@@ -10,6 +11,7 @@ export default function LikeButton({ userId, postId,currentUser}) {
   const [showCommentBox, setShowCommentBox] = useState (false);
   const [comment, setComment] = useState ("");
   const [comments, setComments] = useState ([]);
+  const { t } = useTranslation("global");
 
 
   const addComment = () => {
@@ -42,7 +44,7 @@ export default function LikeButton({ userId, postId,currentUser}) {
 
   return (
     <div className="like-container" >
-     <p>{likesCount} Many people likes this post</p>
+     <p>{likesCount} {t("span.postCardOne")}</p>
      <div className="hr-line">
      <hr />
       </div> 
@@ -56,14 +58,14 @@ export default function LikeButton({ userId, postId,currentUser}) {
        )
          }
 
-       <p className={liked ? "blue" : "black"}>Like</p> 
+       <p className={liked ? "blue" : "black"}>{t("span.postCardTwo")}</p> 
        </div>
 
 
        <div className="likes-comment-inner" onClick={() => setShowCommentBox(!showCommentBox)}>
        <CommentOutlined color = {showCommentBox ?  "#0a66c2" : "#212121"}/> 
 
-       <p className={showCommentBox ? "blue" : "black"}>Comment</p> 
+       <p className={showCommentBox ? "blue" : "black"}>{t("span.postCardThree")}</p> 
        
        </div>
        </div>
@@ -71,12 +73,12 @@ export default function LikeButton({ userId, postId,currentUser}) {
        {showCommentBox ? (
         <>
        <input className="comment-input" 
-        placeholder="Add a comment"
+        placeholder={t("input.postCard")}
         onChange={getComment}
         name="comment"
         value={comment}
        />
-       <button onClick={addComment} className="add-comment-btn">Add comment</button>
+       <button onClick={addComment} className="add-comment-btn">{t("button.postCard")}</button>
        {comments.length > 0 ? comments.map((comment)=> {
         return (
           <div className="all-comments" key={comment.id}>
