@@ -66,6 +66,10 @@
     font-weight: 400;
     color: rgb(82,106,110);
 }
+.first_page_logo{
+    display: flex;
+    justify-content: space-between;
+}
 
 @media only screen and (max-width: 800px) {
     .welcome{

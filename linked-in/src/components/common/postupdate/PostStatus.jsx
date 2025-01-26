@@ -1,16 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import "./PostStatus.css";
 import ModalComponent from "../modal/ModalComponent";
-import { postStatus, getStatus, updatePost, updateCommentsWithNewName, getCurrentUser } from "../../../api/FirestoreAPI";
+import {
+  postStatus,
+  getStatus,
+  updatePost,
+  updateCommentsWithNewName,
+} from "../../../api/FirestoreAPI";
 import PostsCard from "../postscard/PostsCard";
-import { uploadPostImage } from '../../../api/ImageUpload';
-import { getCurrentTimeStamp } from '../../../helpers/useMoment';
-import { getUniqueID } from '../../../helpers/getUniqueId';
-import {useNavigate} from "react-router-dom"
-import { Carousel } from 'antd';
+import { uploadPostImage } from "../../../api/ImageUpload";
+import { getCurrentTimeStamp } from "../../../helpers/useMoment";
+import { getUniqueID } from "../../../helpers/getUniqueId";
+import { useNavigate } from "react-router-dom";
+import { Carousel } from "antd";
 import { HiUserPlus } from "react-icons/hi2";
 import { useTranslation } from "react-i18next";
-
 
 function PostStatus({ currentUser }) {
   const { t } = useTranslation("global");
@@ -22,7 +26,6 @@ function PostStatus({ currentUser }) {
   const [currentPost, setCurrentPost] = useState({});
   const [isEdit, setIsEdit] = useState(false);
   const [postImage, setPostImage] = useState("");
-
 
   const sendStatus = async () => {
     try {
@@ -67,10 +70,6 @@ function PostStatus({ currentUser }) {
     }
   };
 
- 
-  
-
-
   useEffect(() => {
     getStatus(setAllStatus);
   }, []);
@@ -89,38 +88,48 @@ function PostStatus({ currentUser }) {
 
   return (
     <div className="post-status-main">
-
       <div className="user-details">
         <div className="bgr_img">
-        <img src={currentUser?.imageLink} alt="imageLink" />
+          <img src={currentUser?.imageLink} alt="imageLink" />
         </div>
         <p className="name">{currentUser.name}</p>
         <p className="headline">{currentUser.headline}</p>
-        <hr className='hr-textt' />
-        <div className='user-detail-connection'   onClick={() => navigate("/connections")}>
+        <hr className="hr-textt" />
+        <div
+          className="user-detail-connection"
+          onClick={() => navigate("/connections")}
+        >
           <div>
-        <span>{t("paragraph.postStatusOne")}</span> <br />
-        <span>{t("paragraph.postStatusTwo")}</span>
+            <span>{t("paragraph.postStatusOne")}</span> <br />
+            <span>{t("paragraph.postStatusTwo")}</span>
+          </div>
+          <div>
+            <HiUserPlus />
+          </div>
         </div>
-        <div><HiUserPlus/></div>
-        </div>
-        
       </div>
-
 
       <Carousel arrows infinite={false}>
         <div className="quick">
-          <img src="https://media.licdn.com/media/AAYQAgSuAAgAAQAAAAAAACwog6StkzhzSlK17m4iY5d_Xg.png" alt="" />
+          <img
+            src="https://media.licdn.com/media/AAYQAgSuAAgAAQAAAAAAACwog6StkzhzSlK17m4iY5d_Xg.png"
+            alt=""
+          />
           <p>{t("carousel-p.carouselOne")}</p>
           <button
             className="btn-post-status-edit"
-            onClick={() => navigate("/profile", { state: { user: currentUser } })}
+            onClick={() =>
+              navigate("/profile", { state: { user: currentUser } })
+            }
           >
             {t("carousel-btn.carouselOne")}
           </button>
         </div>
         <div className="quick">
-          <img src="https://media.licdn.com/media/AAYQAgSuAAgAAQAAAAAAACnZ-D2hlcNzRqqPRb5a8tlJcA.png" alt="" />
+          <img
+            src="https://media.licdn.com/media/AAYQAgSuAAgAAQAAAAAAACnZ-D2hlcNzRqqPRb5a8tlJcA.png"
+            alt=""
+          />
           <p>{t("carousel-p.carouselTwo")}</p>
           <button
             className="btn-post-status-edit"
@@ -131,13 +140,12 @@ function PostStatus({ currentUser }) {
         </div>
       </Carousel>
 
-      
-
-      
-      
-
       <div className="post-status">
-        <img className="post-image" src={currentUser?.imageLink} alt="imageLink" />
+        <img
+          className="post-image"
+          src={currentUser?.imageLink}
+          alt="imageLink"
+        />
         <button
           className="open-post-modal"
           onClick={() => {
@@ -164,7 +172,7 @@ function PostStatus({ currentUser }) {
         setPostImage={setPostImage}
       />
 
-      <div >
+      <div>
         {allStatuses.map((posts) => {
           return (
             <div key={posts.id}>

@@ -88,4 +88,9 @@
     .posts-card{
       max-width: 350px;
     }
+    .post-image {
+      cursor: pointer;
+      width: 100%;
+      height: 200px;
+    }
   }

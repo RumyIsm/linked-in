@@ -5,7 +5,7 @@ import "./Common.css"
 function Loader() {
     return (
         <div className='loader '>
-         <p>  Loading...Please...Wait... </p> 
+         <p>{t("loader.page")} </p> 
         <Spin size='large' />
         </div>
     )

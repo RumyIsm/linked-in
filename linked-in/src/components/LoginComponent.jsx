@@ -1,48 +1,42 @@
-import React, { useState }  from "react";
+import React, { useState } from "react";
 import { LoginAPI, GoogleSignInAPI } from "../api/AuthAPI";
 import "../css/LoginComponent.css";
 import { useNavigate } from "react-router-dom";
 import LinkedinLogo from "../assets/linkedinLogo.png";
 import GoogleButton from "react-google-button";
 import { toast } from "react-toastify";
-import { MdLanguage } from "react-icons/md"; 
+import { MdLanguage } from "react-icons/md";
 import { useTranslation } from "react-i18next";
-import { Button, Dropdown } from "antd";
+import { Dropdown } from "antd";
 
 function LoginComponent() {
   let navigate = useNavigate();
   const [credentails, setCredentials] = useState({});
   const { t, i18n } = useTranslation("global");
-  
-    const changeLang = (lang) => {
-      i18n.changeLanguage(lang);
-      localStorage.setItem("language", lang);
-    };
-  
-    const languageMenu = [
-      {
-        key: "en",
-        label: (
-          <div
-            onClick={() => changeLang("en")}
-            style={{ cursor: "pointer" }}
-          >
-            {t("language.en")}
-          </div>
-        ),
-      },
-      {
-        key: "al",
-        label: (
-          <div
-            onClick={() => changeLang("al")}
-            style={{ cursor: "pointer" }}
-          >
-            {t("language.al")}
-          </div>
-        ),
-      },
-    ];
+
+  const changeLang = (lang) => {
+    i18n.changeLanguage(lang);
+    localStorage.setItem("language", lang);
+  };
+
+  const languageMenu = [
+    {
+      key: "en",
+      label: (
+        <div onClick={() => changeLang("en")} style={{ cursor: "pointer" }}>
+          {t("language.en")}
+        </div>
+      ),
+    },
+    {
+      key: "al",
+      label: (
+        <div onClick={() => changeLang("al")} style={{ cursor: "pointer" }}>
+          {t("language.al")}
+        </div>
+      ),
+    },
+  ];
 
   const login = async () => {
     try {
@@ -64,23 +58,34 @@ function LoginComponent() {
 
   return (
     <div className="login-wrapper">
-      <h1
-        style={{ fontSize: "38px", fontFamily: "system-ui", color: " #0073b1" , marginLeft:"100px"}}
+      <div
+        className="header-container"
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          margin: "20px 100px",
+        }}
       >
-        Linked
-        <img src={LinkedinLogo} className="linkedinLogo" alt="LinkedIn Logo" />
-      </h1>
+        <h1
+          style={{
+            fontSize: "38px",
+            fontFamily: "system-ui",
+            color: "#0073b1",
+          }}
+        >
+          Linked
+          <img
+            src={LinkedinLogo}
+            className="linkedinLogo"
+            alt="LinkedIn Logo"
+          />
+        </h1>
 
-      <Dropdown
-                  menu={{ items: languageMenu }}
-                  placement="bottom"
-                  arrow
-                >
-                  <Button>
-                    <MdLanguage style={{ marginRight: "8px", fontSize: "18px" }} />
-                    {t("")}
-                  </Button>
-                </Dropdown>
+        <Dropdown menu={{ items: languageMenu }} placement="bottom" arrow>
+          <MdLanguage style={{ fontSize: "24px", cursor: "pointer" }} />
+        </Dropdown>
+      </div>
 
       <div className="login-wrapper-inner">
         <h1 className="heading">{t("header.loginPage")}</h1>
@@ -105,7 +110,7 @@ function LoginComponent() {
           />
         </div>
         <button onClick={login} className="login-btn">
-        {t("button.loginPage")}
+          {t("button.loginPage")}
         </button>
       </div>
       <hr className="hr-text" data-content="or" />
@@ -123,9 +128,9 @@ function LoginComponent() {
           onClick={googleSignIn}
         />
         <p className="go-to-signup">
-        {t("paragraph.loginPageTwo")}?{" "}
+          {t("paragraph.loginPageTwo")}?{" "}
           <span className="join-now" onClick={() => navigate("/register")}>
-          {t("link.loginPage")}
+            {t("link.loginPage")}
           </span>
         </p>
       </div>

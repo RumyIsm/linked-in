@@ -6,7 +6,9 @@
     "header": {
       "firstPage": "Mirë se vini në komunitetin tuaj profesional",
       "loginPage":"Regjistrohu tani",
-        "registerPage" : "Përfitoni sa më shumë nga jeta juaj profesionale"
+        "registerPage" : "Përfitoni sa më shumë nga jeta juaj profesionale",
+        "modal":"Krijo një post",
+         "modalProfile": "Vendos foton e profilit"
     },
     "button": {
       "oneFirstPage": "Regjistrohu",
@@ -18,7 +20,13 @@
         "popupOne":"Shih profilin",
         "popupTwo":"Dil",
         "profileEdit": "Ruaj",
-        "connection": "Lidhu"
+        "connection": "Lidhu",
+        "modalOne": "Posto",
+        "modalTwo": "Përditëso",
+        "modalProfile": "Vendos fotogarfinë",
+        "modalProfileTwo":" Ngarko fotografinë e profilit"
+       
+        
     },
     "paragraph": {
         "loginPage":"Qëndroni të përditësuar për botën tuaj profesioanle",
@@ -39,7 +47,8 @@
         "registerPageOne":"Emri juaj",
         "registerPageTwo":"Emaili juaj",
         "registerPageThree":"Fjalëkalimi (6 ose më shumë karaktere)",
-        "postCard":"Shto një koment"
+        "postCard":"Shto një koment",
+        "modal":"Shpërndani diçka të dobishme..."
     },
     "carousel-p" :
     {
@@ -62,5 +71,15 @@
         "profileEdit3":"Faqe interneti",
         "profileEdit4":"Rreth",
         "profileEdit5":"Aftësitë"
-    }        
+    },
+    "toast": {
+        "postStatus":"Postimi është shtuar me sukses",
+        "editProfile":"Profili është përditësuar me sukses",
+        "updatePost":"Postimi është përditësuar me sukses!",
+        "deletePost":"Postimi është fshirë!",
+        "addConnection":"Lidhja u shtua!"
+    },
+    "loader": {
+        "page":"Ngarkohet...Ju lutem...Prisni..."
+    }      
 }

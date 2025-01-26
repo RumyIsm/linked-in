@@ -136,10 +136,7 @@ function Topbar({ currentUser }) {
           <AiOutlineMessage size={23} className="react-icon" />
           <AiOutlineBell size={23} className="react-icon" />
           <Dropdown menu={{ items: languageMenu }} placement="bottom" arrow>
-            <Button>
-              <MdLanguage style={{ marginRight: "8px", fontSize: "18px" }} />
-              {t("")}
-            </Button>
+            <MdLanguage size={23} className="react-icon" />
           </Dropdown>
         </div>
       )}

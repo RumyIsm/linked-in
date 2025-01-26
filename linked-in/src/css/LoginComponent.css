@@ -27,7 +27,15 @@ body {
     margin-top: -20px;
     font-family: system-ui;
   }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 100px; 
+  }
 }
+
 
 .login-btn {
   width: 300px;
@@ -111,6 +119,7 @@ outline: 1 px solid rgb(77, 77, 196);
     background-color: #fcfcfa;
   }
 }
+
 
 .google-btn-container {
   display: flex;

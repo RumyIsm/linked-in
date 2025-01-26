@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import GettingStarted from "../assets/first_page photo.svg";
 import LinkedinLogo from "../assets/linkedinLogo.png";
 import { useTranslation } from "react-i18next";
-import { Button, Dropdown } from "antd";
-import { MdLanguage } from "react-icons/md"; 
+import { Dropdown } from "antd";
+import { MdLanguage } from "react-icons/md";
 import "./FirstPage.css";
 
 function FirstPage() {
@@ -20,10 +20,7 @@ function FirstPage() {
     {
       key: "en",
       label: (
-        <div
-          onClick={() => changeLang("en")}
-          style={{ cursor: "pointer" }}
-        >
+        <div onClick={() => changeLang("en")} style={{ cursor: "pointer" }}>
           {t("language.en")}
         </div>
       ),
@@ -31,10 +28,7 @@ function FirstPage() {
     {
       key: "al",
       label: (
-        <div
-          onClick={() => changeLang("al")}
-          style={{ cursor: "pointer" }}
-        >
+        <div onClick={() => changeLang("al")} style={{ cursor: "pointer" }}>
           {t("language.al")}
         </div>
       ),
@@ -55,19 +49,23 @@ function FirstPage() {
             }}
           >
             Linked
-            <img src={LinkedinLogo} className="linkedinLogo" alt="LinkedIn Logo" />
+            <img
+              src={LinkedinLogo}
+              className="linkedinLogo"
+              alt="LinkedIn Logo"
+            />
           </h1>
 
-          
-          <Dropdown
-            menu={{ items: languageMenu }}
-            placement="bottom"
-            arrow
-          >
-            <Button>
-              <MdLanguage style={{ marginRight: "8px", fontSize: "18px" }} />
-              {t("")}
-            </Button>
+          <Dropdown menu={{ items: languageMenu }} placement="bottom" arrow>
+            <MdLanguage
+              style={{
+                marginRight: "8px",
+                fontSize: "18px",
+                cursor: "pointer",
+                marginTop: "50px",
+                marginRight: "50px",
+              }}
+            />
           </Dropdown>
         </div>
         <div className="welcome">

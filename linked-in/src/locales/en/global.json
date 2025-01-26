@@ -6,7 +6,9 @@
     "header": {
       "firstPage": "Welcome to your professional community",
       "loginPage" : "Sign in",
-       "registerPage" : "Make the most of your professional life"
+       "registerPage" : "Make the most of your professional life",
+       "modal":"Create a post",
+        "modalProfile": "Add a Profile Image"
     },
     "button": {
       "oneFirstPage": "Sign in",
@@ -16,7 +18,15 @@
       "postStatus": "Start a post",
        "postCard": "Add Comment",
        "profileEdit": "Save",
-        "connection": "Connect"
+        "connection": "Connect",
+        "modalOne": "Post",
+        "modalTwo": "Update",
+         "popupOne":"View Profile",
+           "popupTwo":"Log out",
+           "modalProfile": "Add an Image",
+           "modalProfileTwo":" Upload Profile Picture"
+          
+          
     },
     "paragraph": {
         "loginPage":"Stay updated on your professional world",
@@ -25,9 +35,8 @@
         "postStatusOne":"Connections",
         "postStatusTwo":"Grow your network",
         "topbar":"No results found...",
-          "topbarTwo":"Search Users...",
-           "popupOne":"View Profile",
-           "popupTwo":"Log out"
+          "topbarTwo":"Search Users..."
+          
          
    },
     "link":{
@@ -40,7 +49,8 @@
         "registerPageOne":"Your name",
         "registerPageTwo":"Your email",
         "registerPageThree":"Password (6 or more characters)",
-        "postCard":"Add a comment"
+        "postCard":"Add a comment",
+        "modal":"Share something useful..."
     },
     "carousel-p" :
     {
@@ -63,6 +73,16 @@
         "profileEdit3":"Website",
         "profileEdit4":"About",
         "profileEdit5":"Skills"
-    }     
+    },
+    "toast": {
+        "postStatus":"Post has been added successfully",
+        "editProfile":"Profile has been updated successfully",
+        "updatePost":"Post has been updated successfully!",
+        "deletePost":"Post has been Deleted!",
+        "addConnection":"Connection Added!"
+    },
+    "loader": {
+        "page":"Loading...Please...Wait..."
+    }        
   }
   

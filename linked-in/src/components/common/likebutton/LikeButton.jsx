@@ -1,31 +1,42 @@
 import React, { useMemo, useState, useEffect } from "react";
-import { likePost, getLikesByUser, postComment, getComments,updateCommentsWithNewName } from "../../../api/FirestoreAPI";
-import {getCurrentTimeStamp} from "../../../helpers/useMoment"
+import {
+  likePost,
+  getLikesByUser,
+  postComment,
+  getComments,
+  updateCommentsWithNewName,
+} from "../../../api/FirestoreAPI";
+import { getCurrentTimeStamp } from "../../../helpers/useMoment";
 import "./LikeButton.css";
-import { LikeOutlined, LikeFilled, CommentOutlined  } from "@ant-design/icons";
+import { LikeOutlined, LikeFilled, CommentOutlined } from "@ant-design/icons";
 import { useTranslation } from "react-i18next";
 
-export default function LikeButton({ userId, postId,currentUser}) {
+export default function LikeButton({ userId, postId, currentUser }) {
   const [likesCount, setLikesCount] = useState(0);
   const [liked, setLiked] = useState(false);
-  const [showCommentBox, setShowCommentBox] = useState (false);
-  const [comment, setComment] = useState ("");
-  const [comments, setComments] = useState ([]);
+  const [showCommentBox, setShowCommentBox] = useState(false);
+  const [comment, setComment] = useState("");
+  const [comments, setComments] = useState([]);
   const { t } = useTranslation("global");
 
-
   const addComment = () => {
-    postComment(postId, comment, getCurrentTimeStamp("LLL"), currentUser?.name,  currentUser?.id);
-      setComment("");
-}
+    postComment(
+      postId,
+      comment,
+      getCurrentTimeStamp("LLL"),
+      currentUser?.name,
+      currentUser?.id
+    );
+    setComment("");
+  };
 
   const handleLike = () => {
     likePost(userId, postId, liked);
   };
 
   const getComment = (event) => {
-    setComment(event.target.value)
-  }
+    setComment(event.target.value);
+  };
 
   useMemo(() => {
     getLikesByUser(userId, postId, setLiked, setLikesCount);
@@ -43,66 +54,71 @@ export default function LikeButton({ userId, postId,currentUser}) {
   }, [currentUser?.name]);
 
   return (
-    <div className="like-container" >
-     <p>{likesCount} {t("span.postCardOne")}</p>
-     <div className="hr-line">
-     <hr />
-      </div> 
-     
-<div className="like-comment">
-      <div className="likes-comment-inner" onClick={handleLike}>
-       {liked ?  (
-        <LikeFilled style={{color:" #0a66c2"}}/>
-       ) : (
-        <LikeOutlined />
-       )
-         }
+    <div className="like-container">
+      <p>
+        {likesCount} {t("span.postCardOne")}
+      </p>
+      <div className="hr-line">
+        <hr />
+      </div>
 
-       <p className={liked ? "blue" : "black"}>{t("span.postCardTwo")}</p> 
-       </div>
+      <div className="like-comment">
+        <div className="likes-comment-inner" onClick={handleLike}>
+          {liked ? (
+            <LikeFilled style={{ color: " #0a66c2" }} />
+          ) : (
+            <LikeOutlined />
+          )}
 
+          <p className={liked ? "blue" : "black"}>{t("span.postCardTwo")}</p>
+        </div>
 
-       <div className="likes-comment-inner" onClick={() => setShowCommentBox(!showCommentBox)}>
-       <CommentOutlined color = {showCommentBox ?  "#0a66c2" : "#212121"}/> 
+        <div
+          className="likes-comment-inner"
+          onClick={() => setShowCommentBox(!showCommentBox)}
+        >
+          <CommentOutlined color={showCommentBox ? "#0a66c2" : "#212121"} />
 
-       <p className={showCommentBox ? "blue" : "black"}>{t("span.postCardThree")}</p> 
-       
-       </div>
-       </div>
+          <p className={showCommentBox ? "blue" : "black"}>
+            {t("span.postCardThree")}
+          </p>
+        </div>
+      </div>
 
-       {showCommentBox ? (
+      {showCommentBox ? (
         <>
-       <input className="comment-input" 
-        placeholder={t("input.postCard")}
-        onChange={getComment}
-        name="comment"
-        value={comment}
-       />
-       <button onClick={addComment} className="add-comment-btn">{t("button.postCard")}</button>
-       {comments.length > 0 ? comments.map((comment)=> {
-        return (
-          <div className="all-comments" key={comment.id}>
-            <div>
-            <p className="name">{comment.name}</p>
-          <p className="comment">{comment.comment}</p>
-          </div>
+          <input
+            className="comment-input"
+            placeholder={t("input.postCard")}
+            onChange={getComment}
+            name="comment"
+            value={comment}
+          />
+          <button onClick={addComment} className="add-comment-btn">
+            {t("button.postCard")}
+          </button>
+          {comments.length > 0 ? (
+            comments.map((comment) => {
+              return (
+                <div className="all-comments" key={comment.id}>
+                  <div>
+                    <p className="name">{comment.name}</p>
+                    <p className="comment">{comment.comment}</p>
+                  </div>
 
-          <div>
-          <p className="timestamp">{comment.timeStamp}</p>
-          </div>
-         
-          
-          </div>
-        )
-       }) : <></>}
-
-
-       </>
-       ):(
+                  <div>
+                    <p className="timestamp">{comment.timeStamp}</p>
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <></>
+          )}
+        </>
+      ) : (
         <></>
-       )}
-
-    
+      )}
     </div>
   );
 }

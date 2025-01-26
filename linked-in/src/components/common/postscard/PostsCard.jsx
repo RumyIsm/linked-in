@@ -1,53 +1,55 @@
-import React, {useMemo, useState,useEffect} from 'react'
-import {useNavigate} from "react-router-dom"
-import LikeButton from '../likebutton/LikeButton';
-import { Button, Modal } from "antd";
-import {EditOutlined } from "@ant-design/icons";
+import React, { useMemo, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import LikeButton from "../likebutton/LikeButton";
+import { Modal } from "antd";
+import { EditOutlined } from "@ant-design/icons";
 import { FaTrash } from "react-icons/fa6";
-import {getCurrentUser, getAllUsers, deletePost, getConnections} from "../../../api/FirestoreAPI"
+import {
+  getCurrentUser,
+  getAllUsers,
+  deletePost,
+  getConnections,
+} from "../../../api/FirestoreAPI";
 
-import "./PostsCard.css"
+import "./PostsCard.css";
 
-function PostsCard({posts, id, getEditData}) {
-    let navigate = useNavigate();
-    const [currentUser, setCurrentUser] = useState ({});
-    const [allUsers, setAllUsers] = useState ([]);
-    const [isConnected, setIsConnected] = useState(false);
-    const [imageModal, setImageModal] = useState(false);
-    
+function PostsCard({ posts, id, getEditData }) {
+  let navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useState({});
+  const [allUsers, setAllUsers] = useState([]);
+  const [isConnected, setIsConnected] = useState(false);
+  const [imageModal, setImageModal] = useState(false);
 
-    useMemo(() => {
-        getCurrentUser(setCurrentUser);
-        getAllUsers(setAllUsers);
-      }, []);
+  useMemo(() => {
+    getCurrentUser(setCurrentUser);
+    getAllUsers(setAllUsers);
+  }, []);
 
-    useEffect(() => {
-        getConnections(currentUser.id, posts.userID, setIsConnected);
-      }, [currentUser.id, posts.userID]);
+  useEffect(() => {
+    getConnections(currentUser.id, posts.userID, setIsConnected);
+  }, [currentUser.id, posts.userID]);
 
+  return isConnected || currentUser.id === posts.userID ? (
+    <div className="posts-card" key={id}>
+      <div className="post-image-wrapper">
+        {currentUser.id === posts.userID ? (
+          <div className="action-container">
+            <EditOutlined
+              size={20}
+              className="action-icon"
+              onClick={() => getEditData(posts)}
+            />
+            <FaTrash
+              size={20}
+              className="action-icon"
+              onClick={() => deletePost(posts.id)}
+            />
+          </div>
+        ) : (
+          <></>
+        )}
 
-
-    return isConnected || currentUser.id === posts.userID ? (
-        <div className="posts-card" key={id}>
-          <div className="post-image-wrapper">
-            {currentUser.id === posts.userID ? (
-              <div className="action-container">
-                <EditOutlined
-                  size={20}
-                  className="action-icon"
-                  onClick={() => getEditData(posts)}
-                />
-                <FaTrash
-                  size={20}
-                  className="action-icon"
-                  onClick={() => deletePost(posts.id)}
-                />
-              </div>
-            ) : (
-              <></>
-            )}
-    
-    <img
+        <img
           alt="profile-image"
           className="profile-image"
           src={
@@ -113,4 +115,4 @@ function PostsCard({posts, id, getEditData}) {
     <></>
   );
 }
-export default PostsCard
+export default PostsCard;
