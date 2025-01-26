@@ -19,10 +19,39 @@ let likeRef = collection(firestore, "likes");
 let commentsRef = collection(firestore, "comments");
 let connectionRef = collection(firestore, "connections");
 
+
+const translations = {
+  al: {
+    toast: {
+      postStatus: "Postimi është shtuar me sukses",
+      editProfile: "Profili është përditësuar me sukses",
+      updatePost: "Postimi është përditësuar me sukses!",
+      deletePost: "Postimi është fshirë!",
+      addConnection: "Lidhja u shtua!",
+    },
+  },
+  en: {
+    toast: {
+      postStatus: "Post has been added successfully",
+      editProfile: "Profile has been updated successfully",
+      updatePost: "Post has been updated successfully!",
+      deletePost: "Post has been Deleted!",
+      addConnection: "Connection Added!",
+    },
+  },
+};
+
+
+const getTranslations = () => {
+  const language = localStorage.getItem("language") || "en"; 
+  return translations[language];
+};
+
 export const postStatus = (object) => {
   addDoc(postsRef, object)
     .then((res) => {
-      toast.success(t("toast.postStatus"));
+      const t = getTranslations(); 
+      toast.success(t.toast.postStatus);
     })
     .catch((err) => {
       console.log(err);
@@ -76,7 +105,8 @@ export const editProfile = (userID, payload) => {
 
   updateDoc(userToEdit, payload)
     .then(() => {
-      toast.success(t("toast.editProfile"));
+      const t = getTranslations(); 
+      toast.success(t.toast.editProfile);
     })
     .catch((err) => {
       console.log(err);
@@ -172,7 +202,8 @@ export const updatePost = async (id, updatedFields) => {
   let docToUpdate = doc(postsRef, id);
   try {
     await updateDoc(docToUpdate, updatedFields);
-    toast.success(t("toast.updatePost"));
+    const t = getTranslations(); 
+      toast.success(t.toast.updatePost);
   } catch (err) {
     console.error("Error updating post:", err);
     toast.error("Failed to update the post.");
@@ -183,7 +214,8 @@ export const deletePost = (id) => {
   let docToDelete = doc(postsRef, id);
   try {
     deleteDoc(docToDelete);
-    toast.success(t("toast.deletePost"));
+    const t = getTranslations(); 
+    toast.success(t.toast.deletePost);
   } catch (err) {
     console.log(err);
   }
@@ -194,7 +226,8 @@ export const addConnection = (userId, targetId) => {
     let connectionToAdd = doc(connectionRef, `${userId}_${targetId}`);
 
     setDoc(connectionToAdd, { userId, targetId });
-    toast.success(t("toast.addConnection"));
+    const t = getTranslations(); 
+    toast.success(t.toast.addConnection);
   } catch (err) {
     console.log(err);
   }
