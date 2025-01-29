@@ -77,9 +77,16 @@
         "editProfile":"Profili është përditësuar me sukses",
         "updatePost":"Postimi është përditësuar me sukses!",
         "deletePost":"Postimi është fshirë!",
-        "addConnection":"Lidhja u shtua!"
+        "addConnection":"Lidhja u shtua!",
+        "login":"U identifikua në Linkedin!",
+        "login-err":"Ju lutem kontrolloni kredencialet tuaja",
+         "register":"Llogaria u krijua!",
+        "register-err":"Nuk mund të krijoni llogarinë tuaj"
     },
     "loader": {
         "page":"Ngarkohet...Ju lutem...Prisni..."
-    }      
+    },
+    "hr": {
+        "login":"ose"
+    }       
 }

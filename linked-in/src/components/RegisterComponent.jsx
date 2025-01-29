@@ -42,7 +42,7 @@ function RegisterComponent() {
   const register = async () => {
     try {
       let res = await RegisterAPI(credentails.email, credentails.password);
-      toast.success("Account Created!");
+      toast.success(t("toast.register"));
       postUserData({
         userID: getUniqueID(),
         name: credentails.name,
@@ -54,7 +54,7 @@ function RegisterComponent() {
       localStorage.setItem("userEmail", res.user.email);
     } catch (err) {
       console.log(err);
-      toast.error("Cannot Create your Account");
+      toast.error(t("toast.register-err"));
     }
   };
 
@@ -122,7 +122,7 @@ function RegisterComponent() {
           {t("button.registerPage")}
         </button>
       </div>
-      <hr className="hr-text" data-content="or" />
+      <hr className="hr-text" data-content={t("hr.login")} />
       <div className="google-btn-container">
         <p className="go-to-signup">
           {t("paragraph.registerPage")}?{" "}

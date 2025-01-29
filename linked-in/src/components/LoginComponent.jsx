@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { LoginAPI, GoogleSignInAPI } from "../api/AuthAPI";
+import { LoginAPI} from "../api/AuthAPI";
 import "../css/LoginComponent.css";
 import { useNavigate } from "react-router-dom";
 import LinkedinLogo from "../assets/linkedinLogo.png";
-import GoogleButton from "react-google-button";
 import { toast } from "react-toastify";
 import { MdLanguage } from "react-icons/md";
 import { useTranslation } from "react-i18next";
@@ -41,31 +40,21 @@ function LoginComponent() {
   const login = async () => {
     try {
       let res = await LoginAPI(credentails.email, credentails.password);
-      toast.success("Signed In to Linkedin!");
+      toast.success(t("toast.login"));
       navigate("/home");
       localStorage.setItem("userEmail", res.user.email);
       navigate("/home");
     } catch (err) {
       console.log(err);
-      toast.error("Please Check your Credentials");
+      toast.error(t("toast.login-err"));
     }
   };
 
-  const googleSignIn = () => {
-    let response = GoogleSignInAPI();
-    navigate("/home");
-  };
 
   return (
     <div className="login-wrapper">
       <div
         className="header-container"
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          margin: "20px 100px",
-        }}
       >
         <h1
           style={{
@@ -83,7 +72,7 @@ function LoginComponent() {
         </h1>
 
         <Dropdown menu={{ items: languageMenu }} placement="bottom" arrow>
-          <MdLanguage style={{ fontSize: "24px", cursor: "pointer" }} />
+          <MdLanguage className="dropdown" style={{ fontSize: "24px", cursor: "pointer" }} />
         </Dropdown>
       </div>
 
@@ -113,20 +102,8 @@ function LoginComponent() {
           {t("button.loginPage")}
         </button>
       </div>
-      <hr className="hr-text" data-content="or" />
+      <hr className="hr-text" data-content={t("hr.login")} />
       <div className="google-btn-container">
-        <GoogleButton
-          style={{
-            width: "300px",
-            fontSize: "18px",
-            borderRadius: "25px",
-            background: "none",
-          }}
-          type="light"
-          label="Continue with Google"
-          className="google-btn"
-          onClick={googleSignIn}
-        />
         <p className="go-to-signup">
           {t("paragraph.loginPageTwo")}?{" "}
           <span className="join-now" onClick={() => navigate("/register")}>

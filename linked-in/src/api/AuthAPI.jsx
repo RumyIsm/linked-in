@@ -1,8 +1,8 @@
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup,
+  // GoogleAuthProvider,
+  // signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 
@@ -26,13 +26,13 @@ export const RegisterAPI = async (email, password) => {
   }
 };
 
-export const GoogleSignInAPI = async () => {
-  try {
-    const googleProvider = new GoogleAuthProvider();
-    let response = await signInWithPopup(auth, googleProvider);
-    return response;
-  } catch (err) {
-    console.error("Google Sign-In error:", err.message || err);
-    throw err;
-  }
-};
+// export const GoogleSignInAPI = async () => {
+//   try {
+//     const googleProvider = new GoogleAuthProvider();
+//     let response = await signInWithPopup(auth, googleProvider);
+//     return response;
+//   } catch (err) {
+//     console.error("Google Sign-In error:", err.message || err);
+//     throw err;
+//   }
+// };

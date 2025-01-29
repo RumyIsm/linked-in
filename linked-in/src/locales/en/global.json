@@ -79,10 +79,17 @@
         "editProfile":"Profile has been updated successfully",
         "updatePost":"Post has been updated successfully!",
         "deletePost":"Post has been Deleted!",
-        "addConnection":"Connection Added!"
+        "addConnection":"Connection Added!",
+        "login":"Signed In to Linkedin!",
+        "login-err":"Please Check your Credentials",
+        "register":"Account Created!",
+        "register-err":"Cannot create your account"
     },
     "loader": {
         "page":"Loading...Please...Wait..."
-    }        
+    },
+    "hr": {
+        "login":"or"
+    }          
   }
   
