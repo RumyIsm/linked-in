@@ -117,11 +117,16 @@ function PostStatus({ currentUser }) {
           />
           <p>{t("carousel-p.carouselOne")}</p>
           <button
-            className="btn-post-status-edit"
-            onClick={() =>
-              navigate("/profile", { state: { user: currentUser } })
-            }
-          >
+      className="btn-post-status-edit"
+      onClick={() =>
+        navigate("/profile", {
+          state: {
+            id: currentUser.id,
+            email: currentUser.email,
+          },
+        })
+      }
+    >
             {t("carousel-btn.carouselOne")}
           </button>
         </div>

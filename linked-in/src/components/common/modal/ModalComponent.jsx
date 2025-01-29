@@ -52,6 +52,7 @@ const ModalComponent = ({
       >
         <div className="posts-body">
           <ReactQuill
+          key={i18n.language}
             className="modal-input"
             theme="snow"
             value={status}
@@ -93,17 +94,3 @@ const ModalComponent = ({
 
 export default ModalComponent;
 
-// const ModalComponent = ({modalOpen,setModalOpen ,setStatus,status,sendStatus}) => {
-
-//   return (
-//     <>
-//       <Modal
-//
-//
-//         >
-//
-
-//       </Modal>
-//     </>
-//   );
-// };
